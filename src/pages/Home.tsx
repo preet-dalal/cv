@@ -45,42 +45,114 @@ export default function Home() {
       </div>
 
       <div className="relative z-10">
-        <header className="pt-20 pb-12 px-4 text-center">
+        <header className="pt-16 pb-8 px-4">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
           >
-            <h1 className="text-gradient text-5xl md:text-7xl font-bold mb-4 leading-tight">
-              Event Horizon
+            <h1 className="text-gradient text-6xl md:text-7xl font-bold mb-2 leading-tight">
+              Preet Dalal
             </h1>
             <p className="text-xl md:text-2xl text-gray-400 font-light">
-              Physics Research Portfolio
+              Physics Research & Academic Portfolio
             </p>
           </motion.div>
         </header>
 
-        <main className="max-w-4xl mx-auto px-4 pb-20">
+        <main className="max-w-4xl mx-auto px-4 pb-20 space-y-16">
+          {/* About Section */}
+          <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <h2 className="text-3xl font-bold text-white mb-6 border-b-2 border-orange-500 pb-3">About</h2>
+            <div className="glass-card p-8 rounded-xl">
+              <p className="text-gray-200 text-lg leading-relaxed mb-4">
+                Welcome to my academic portfolio. I am a physics researcher with a passion for understanding the fundamental laws of the universe. My work spans theoretical physics, cosmology, and computational methods.
+              </p>
+              <p className="text-gray-300 text-base leading-relaxed">
+                This portfolio showcases my research projects, academic work, and computational contributions to the field of physics.
+              </p>
+            </div>
+          </motion.section>
+
+          {/* Education Section */}
+          <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <h2 className="text-3xl font-bold text-white mb-6 border-b-2 border-orange-500 pb-3">Education</h2>
+            <div className="space-y-4">
+              <div className="glass-card p-6 rounded-xl">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-xl font-bold text-white">Ph.D. in Physics</h3>
+                  <span className="text-sm text-orange-400">In Progress</span>
+                </div>
+                <p className="text-gray-400 mb-2">University / Institution</p>
+                <p className="text-gray-300 text-sm">Specialization in theoretical physics and cosmology</p>
+              </div>
+              <div className="glass-card p-6 rounded-xl">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-xl font-bold text-white">B.S. in Physics</h3>
+                  <span className="text-sm text-orange-400">Completed</span>
+                </div>
+                <p className="text-gray-400">University / Institution</p>
+              </div>
+            </div>
+          </motion.section>
+
+          {/* Research Interests */}
+          <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h2 className="text-3xl font-bold text-white mb-6 border-b-2 border-orange-500 pb-3">Research Interests</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="glass-card p-6 rounded-xl">
+                <h3 className="text-lg font-bold text-orange-400 mb-2">Theoretical Physics</h3>
+                <p className="text-gray-300 text-sm">General relativity, quantum mechanics, and field theory</p>
+              </div>
+              <div className="glass-card p-6 rounded-xl">
+                <h3 className="text-lg font-bold text-orange-400 mb-2">Cosmology</h3>
+                <p className="text-gray-300 text-sm">Universe expansion, dark matter, and large-scale structure</p>
+              </div>
+              <div className="glass-card p-6 rounded-xl">
+                <h3 className="text-lg font-bold text-orange-400 mb-2">Computational Methods</h3>
+                <p className="text-gray-300 text-sm">Numerical simulations and data analysis techniques</p>
+              </div>
+              <div className="glass-card p-6 rounded-xl">
+                <h3 className="text-lg font-bold text-orange-400 mb-2">Astrophysics</h3>
+                <p className="text-gray-300 text-sm">Black holes, gravitational waves, and stellar evolution</p>
+              </div>
+            </div>
+          </motion.section>
+
           {/* Main Research Content */}
           {mainContent && (
-            <motion.article
+            <motion.section
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-20 glass-card p-8 rounded-xl"
+              transition={{ duration: 0.5, delay: 0.25 }}
             >
-              <LaTeXDocument content={mainContent} />
-            </motion.article>
+              <h2 className="text-3xl font-bold text-white mb-6 border-b-2 border-orange-500 pb-3">Featured Research</h2>
+              <article className="glass-card p-8 rounded-xl">
+                <LaTeXDocument content={mainContent} />
+              </article>
+            </motion.section>
           )}
 
           {/* Projects Section */}
-          <motion.div
+          <motion.section
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-20"
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h2 className="text-3xl font-bold text-white mb-8">Research Projects</h2>
+            <h2 className="text-3xl font-bold text-white mb-8 border-b-2 border-orange-500 pb-3">Research Projects</h2>
             {projects.length === 0 ? (
               <div className="text-center py-20 text-gray-400">
                 <p className="text-xl">No projects found. Add .tex files to /projects to get started.</p>
@@ -92,7 +164,7 @@ export default function Home() {
                     key={project.slug}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
                     whileHover={{ scale: 1.02, y: -5 }}
                   >
                     <Link to={`/project/${project.slug}`}>
@@ -109,9 +181,9 @@ export default function Home() {
                         </div>
 
                         <div className="p-6 flex flex-col flex-grow">
-                          <h2 className="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2">
+                          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors line-clamp-2">
                             {project.title}
-                          </h2>
+                          </h3>
                           <p className="text-gray-400 text-sm leading-relaxed flex-grow line-clamp-3">
                             {project.summary}
                           </p>
@@ -125,13 +197,8 @@ export default function Home() {
                 ))}
               </div>
             )}
-          </motion.div>
+          </motion.section>
         </main>
-
-        <footer className="mt-20 border-t border-white/10 py-12 px-4 text-center text-gray-400">
-          <p className="mb-2">© 2026 Physics Research Portfolio</p>
-          <p className="text-sm">Built with React, Vite, and KaTeX</p>
-        </footer>
       </div>
     </div>
   )
