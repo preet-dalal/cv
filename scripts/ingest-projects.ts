@@ -72,7 +72,18 @@ function extractImages(texContent: string, projectDir: string): Record<string, s
   return images
 }
 
-function getPreviewImage(images: Record<string, string>): string {
+function getPreviewImage(images: Record<string, string>, slug: string): string {
+  // Map specific cover images to projects
+  const coverImages: Record<string, string> = {
+    'project-1': '/assets/project1-cover.jpg',
+    'project-2': '/assets/project2-cover.jpg',
+    'project-3': '/assets/project3-cover.jpg',
+  }
+  
+  if (coverImages[slug]) {
+    return coverImages[slug]
+  }
+  
   const imageFiles = Object.keys(images)
   if (imageFiles.length > 0) {
     return images[imageFiles[0]]
@@ -120,8 +131,8 @@ async function ingestProjects() {
 
     const { title, summary, content } = extractTeXMetadata(texContent)
     const images = extractImages(texContent, projectPath)
-    const previewImage = getPreviewImage(images)
     const slug = slugify(folder)
+    const previewImage = getPreviewImage(images, slug)
 
     projects.push({
       slug,

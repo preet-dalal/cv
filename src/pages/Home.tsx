@@ -71,16 +71,35 @@ export default function Home() {
           >
             <h2 className="text-3xl font-bold text-white mb-6 border-b-2 border-orange-500 pb-3">About</h2>
             <div className="glass-card p-8 rounded-xl">
-              <p className="text-gray-200 text-lg leading-relaxed mb-4">
-                I am a physics graduate student at CHARUSAT University, India, pursuing my M.Sc. in Physics with a focus on General Relativity, Astrophysics, and Computational Physics. I am currently working on testing the spacetime geometry of Sgr A* using the relativistic orbit of the S2 star.
-              </p>
-              <p className="text-gray-300 text-base leading-relaxed mb-4">
-                My research interests include black hole physics, modified gravity theories, cosmological parameter estimation, and computational astrophysics. I am passionate about using numerical methods and Bayesian analysis to constrain theoretical models with observational data.
-              </p>
-              <div className="flex flex-wrap gap-4 text-sm text-gray-400">
-                <span>📧 <a href="mailto:pdalal2003@gmail.com" className="text-orange-400 hover:text-orange-300">pdalal2003@gmail.com</a></span>
-                <span>📍 Gujarat, India</span>
-                <span>🔗 <a href="https://www.linkedin.com/in/preet-dalal/" className="text-orange-400 hover:text-orange-300" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                {/* Image Column - 40% */}
+                <div className="w-full md:w-2/5 flex-shrink-0">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-lg shadow-2xl">
+                    <img 
+                      src={`${import.meta.env.BASE_URL}assets/preet-photo.jpg`}
+                      alt="Preet Dalal"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 400%22%3E%3Crect fill=%22%231a1f3a%22 width=%22300%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2220%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EPreet Dalal%3C/text%3E%3C/svg%3E'
+                      }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Content Column - 60% */}
+                <div className="w-full md:w-3/5 flex flex-col justify-center">
+                  <p className="text-gray-200 text-lg leading-relaxed mb-4">
+                    I am a physics graduate student at CHARUSAT University, India, pursuing my M.Sc. in Physics with a focus on General Relativity, Astrophysics, and Computational Physics. I am currently working on testing the spacetime geometry of Sgr A* using the relativistic orbit of the S2 star.
+                  </p>
+                  <p className="text-gray-300 text-base leading-relaxed mb-4">
+                    My research interests include black hole physics, modified gravity theories, cosmological parameter estimation, and computational astrophysics. I am passionate about using numerical methods and Bayesian analysis to constrain theoretical models with observational data.
+                  </p>
+                  <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+                    <span>📧 <a href="mailto:pdalal2003@gmail.com" className="text-orange-400 hover:text-orange-300">pdalal2003@gmail.com</a></span>
+                    <span>📍 Gujarat, India</span>
+                    <span>🔗 <a href="https://www.linkedin.com/in/preet-dalal/" className="text-orange-400 hover:text-orange-300" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.section>
