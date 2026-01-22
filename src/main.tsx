@@ -6,8 +6,8 @@ import './index.css'
 
 const getBasename = () => {
   const path = window.location.pathname
-  if (path.includes('/website')) {
-    return '/website'
+  if (path.includes('/cv')) {
+    return '/cv'
   }
   return '/'
 }
