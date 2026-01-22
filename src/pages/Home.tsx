@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import LaTeXDocument from '../components/LaTeXDocument'
+import BlackHoleBackground from '../components/BlackHoleBackground'
 import type { Project } from '../types'
 
 export default function Home() {
@@ -40,11 +41,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-cosmic-900 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
-      </div>
-
+      <BlackHoleBackground />
+      
       <div className="relative z-10">
         <header className="pt-16 pb-8 px-4">
           <motion.div

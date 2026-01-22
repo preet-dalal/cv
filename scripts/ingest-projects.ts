@@ -48,18 +48,18 @@ function extractTeXMetadata(texContent: string): {
 
 function extractImages(texContent: string, projectDir: string): Record<string, string> {
   const images:  Record<string, string> = {}
-  const imgRegex = /\\includegraphics(?:  ?\[[^\]]*\])?\{([^}]+)\}/g
+  const imgRegex = /\\includegraphics(?:\s*\[[^\]]*\])?\{([^}]+)\}/g
 
   let match
   while ((match = imgRegex.exec(texContent)) !== null) {
-    let imagePath = match[1]
+    let imagePath = match[1].trim()
     
     if (imagePath.includes('/')) {
       imagePath = imagePath.split('/').pop() || imagePath
     }
 
-    const fileName = path.basename(imagePath)
-    const fullPath = path.join(projectDir, imagePath)
+    const fileName = path.basename(imagePath).trim()
+    const fullPath = path.join(projectDir, imagePath.trim())
     const altPath = path.join(projectDir, fileName)
 
     if (fs.existsSync(fullPath)) {
@@ -73,21 +73,24 @@ function extractImages(texContent: string, projectDir: string): Record<string, s
 }
 
 function getPreviewImage(images: Record<string, string>, slug: string): string {
-  // Map specific cover images to projects
+  // Use space-themed cover images for projects
   const coverImages: Record<string, string> = {
-    'project-1': '/assets/project1-cover.jpg',
-    'project-2': '/assets/project2-cover.jpg',
-    'project-3': '/assets/project3-cover.jpg',
+    'project-1': '/assets/project1-cover.jpg',  // Black hole/galactic center
+    'project-2': '/assets/project2-cover.jpg',  // Cosmic/deep space
+    'project-3': '/assets/project3-cover.jpg',  // Planetary orbits
   }
   
+  // Return cover image if available
   if (coverImages[slug]) {
     return coverImages[slug]
   }
   
+  // Fall back to project research figures
   const imageFiles = Object.keys(images)
   if (imageFiles.length > 0) {
     return images[imageFiles[0]]
   }
+  
   return '/assets/placeholder.svg'
 }
 
