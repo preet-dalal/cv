@@ -364,7 +364,6 @@ Then add your projects and deploy! 🚀
 
 ---
 
-*Thank you for using Event Horizon!*
 *Your physics research deserves a beautiful portfolio.*
 
 **Start with:** `START_HERE.md` 👈

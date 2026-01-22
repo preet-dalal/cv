@@ -1,6 +1,6 @@
 # Project Configuration
 
-This file documents the configuration used in the Event Horizon portfolio.
+This file documents the configuration used in this portfolio.
 
 ## Build Configuration
 

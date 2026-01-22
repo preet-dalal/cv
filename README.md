@@ -1,4 +1,4 @@
-# Physics Research Portfolio - Event Horizon
+# Physics Research Portfolio
 
 A fully functional, static site portfolio for physics research projects with automatic LaTeX rendering and GitHub Pages deployment.
 
