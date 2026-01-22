@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <rect fill="#0a0e27" width="600" height="400"/>
+  <line x1="80" y1="200" x2="550" y2="200" stroke="#666" stroke-width="1"/>
+  <line x1="80" y1="50" x2="80" y2="320" stroke="#666" stroke-width="1"/>
+  <polyline points="100,100 150,120 200,150 250,180 300,200 350,220 400,250 450,280 500,310" stroke="#9c27b0" stroke-width="2" fill="none"/>
+  <text x="300" y="360" font-size="12" fill="#999" text-anchor="middle" font-family="Arial">Charge Parameter Q/M</text>
+  <text x="40" y="180" font-size="12" fill="#999" text-anchor="middle" font-family="Arial">Δφ</text>
+  <text x="300" y="25" font-size="13" fill="#9c27b0" font-weight="bold" text-anchor="middle" font-family="Arial">Precession vs Charge (RN)</text>
+</svg>

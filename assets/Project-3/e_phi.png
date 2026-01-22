@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <rect fill="#0a0e27" width="600" height="400"/>
+  <line x1="80" y1="320" x2="550" y2="320" stroke="#666" stroke-width="1"/>
+  <line x1="80" y1="50" x2="80" y2="320" stroke="#666" stroke-width="1"/>
+  <polyline points="100,100 150,110 200,130 250,160 300,200 350,250 400,300 450,315 500,318" stroke="#ff9800" stroke-width="2" fill="none"/>
+  <text x="300" y="360" font-size="12" fill="#999" text-anchor="middle" font-family="Arial">e (eccentricity)</text>
+  <text x="40" y="180" font-size="12" fill="#999" text-anchor="middle" font-family="Arial">Δφ</text>
+  <text x="300" y="25" font-size="14" fill="#ff9800" font-weight="bold" text-anchor="middle" font-family="Arial">Precession vs Eccentricity</text>
+</svg>

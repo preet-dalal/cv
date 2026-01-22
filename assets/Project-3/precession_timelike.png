@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500">
+  <rect fill="#0a0e27" width="700" height="500"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#fb923c" />
+    </marker>
+  </defs>
+  <line x1="80" y1="400" x2="650" y2="400" stroke="#666" stroke-width="1"/>
+  <line x1="80" y1="50" x2="80" y2="400" stroke="#666" stroke-width="1"/>
+  <path d="M 100 350 Q 150 300 200 250 Q 250 200 300 150 Q 350 100 400 50" stroke="#fb923c" stroke-width="2" fill="none"/>
+  <path d="M 420 350 Q 450 320 480 280 Q 510 240 540 190 Q 560 150 580 80" stroke="#dc2626" stroke-width="2" fill="none"/>
+  <circle cx="100" cy="350" r="4" fill="#fb923c"/>
+  <circle cx="420" cy="350" r="4" fill="#dc2626"/>
+  <text x="200" y="440" font-size="11" fill="#fb923c" text-anchor="middle" font-family="Arial">Positive Precession (small Q)</text>
+  <text x="500" y="440" font-size="11" fill="#dc2626" text-anchor="middle" font-family="Arial">Negative Precession (large Q)</text>
+</svg>
