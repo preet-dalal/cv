@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' ? '/website/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/cv/' : '/',
   publicDir: 'public',
   server: {
     port: 5173,
