@@ -47,6 +47,8 @@ function extractTeXMetadata(texContent: string): {
 }
 
 function extractImages(texContent: string, projectDir: string): Record<string, string> {
+  // Always use /cv base URL for production deployment
+  const baseUrl = '/cv'
   const images:  Record<string, string> = {}
   const imgRegex = /\\includegraphics(?:\s*\[[^\]]*\])?\{([^}]+)\}/g
 
@@ -63,9 +65,9 @@ function extractImages(texContent: string, projectDir: string): Record<string, s
     const altPath = path.join(projectDir, fileName)
 
     if (fs.existsSync(fullPath)) {
-      images[fileName] = `/assets/${path.basename(projectDir)}/${fileName}`
+      images[fileName] = `${baseUrl}/assets/${path.basename(projectDir)}/${fileName}`
     } else if (fs.existsSync(altPath)) {
-      images[fileName] = `/assets/${path.basename(projectDir)}/${fileName}`
+      images[fileName] = `${baseUrl}/assets/${path.basename(projectDir)}/${fileName}`
     }
   }
 
@@ -73,11 +75,14 @@ function extractImages(texContent: string, projectDir: string): Record<string, s
 }
 
 function getPreviewImage(images: Record<string, string>, slug: string): string {
+  // Always use /cv base URL for production deployment
+  const baseUrl = '/cv'
+  
   // Use space-themed cover images for projects
   const coverImages: Record<string, string> = {
-    'project-1': '/assets/project1-cover.jpg',  // Black hole/galactic center
-    'project-2': '/assets/project2-cover.jpg',  // Cosmic/deep space
-    'project-3': '/assets/project3-cover.jpg',  // Planetary orbits
+    'project-1': `${baseUrl}/assets/project1-cover.jpg`,  // Black hole/galactic center
+    'project-2': `${baseUrl}/assets/project2-cover.jpg`,  // Cosmic/deep space
+    'project-3': `${baseUrl}/assets/project3-cover.jpg`,  // Planetary orbits
   }
   
   // Return cover image if available
@@ -91,7 +96,7 @@ function getPreviewImage(images: Record<string, string>, slug: string): string {
     return images[imageFiles[0]]
   }
   
-  return '/assets/placeholder.svg'
+  return `${baseUrl}/assets/placeholder.svg`
 }
 
 function slugify(text: string): string {
